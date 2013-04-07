@@ -4551,12 +4551,12 @@
 				}
 				return i(b, a), b.prototype.events = {
 					"submit form": "create",
-					"click  .clear": "clearCompleted"
+					"click  .clear": "clear"
 				}, b.prototype.elements = {
 					".items": "items",
 					".countVal": "count",
 					".clear": "clear",
-					"form input[name=task_name]": "input"
+					"form input": "input"
 				}, b.prototype.addOne = function(a) {
 					var b;
 					return b = new f({
@@ -4568,7 +4568,7 @@
 					return a.preventDefault(), d.create({
 						name: this.input.val()
 					}), this.input.val("")
-				}, b.prototype.clearCompleted = function() {
+				}, b.prototype.clear = function() {
 					return d.destroyDone()
 				}, b.prototype.renderCount = function() {
 					var a, b;
@@ -4596,16 +4596,16 @@
 					this.render = d(this.render, this), c.__super__.constructor.apply(this, arguments), this.item.bind("update", this.render), this.item.bind("destroy", this.release)
 				}
 				return f(c, a), c.prototype.events = {
-					"change   input[type=checkbox]": "toggle",
-					"click    .destroy": "remove",
-					"dblclick .view": "edit",
-					"keypress input[type=text]": "blurOnEnter",
-					"blur     input[type=text]": "close"
+					"change     input[type=checkbox]": "toogle",
+					"click      .destroy": "remove",
+					"dbclick    .view": "edit",
+					"keypress   input[type=text]": "blurOnEnter",
+					"blur       input[type=text]": "close"
 				}, c.prototype.elements = {
-					"input[name=edit_name]": "input"
+					"input[type=text]": "input"
 				}, c.prototype.render = function() {
 					return this.replace(b("views/tasks")(this.item)), this
-				}, c.prototype.toggle = function() {
+				}, c.prototype.toogle = function() {
 					return this.item.done = !this.item.done, this.item.save()
 				}, c.prototype.remove = function() {
 					return this.item.destroy()
@@ -4881,7 +4881,7 @@
 				function b() {
 					return b.__super__.constructor.apply(this, arguments)
 				}
-				return d(b, a), b.configure("Task", "name", "done"), b.extend(Spine.Model.Ajax), b.active = function() {
+				return d(b, a), b.configure("Task", "name", "done"), b.extend(Spine.Model.Local), b.active = function() {
 					return this.select(function(a) {
 						return !a.done
 					})
@@ -4891,7 +4891,7 @@
 					})
 				}, b.destroyDone = function() {
 					var a, b, c, d, e;
-					d = this.done(), e = [];
+					d = this.done, e = [];
 					for (b = 0, c = d.length; b < c; b++) a = d[b], e.push(a.destroy());
 					return e
 				}, b
@@ -4918,7 +4918,7 @@
 		})).call(this)
 	},
 	"views/tasks": function(a, b, c) {
-		var d = jQuery.template('  \n    <div class="item {{if done}}done{{/if}}">\n      <div class="view" title="Double click to edit...">\n        <input type="checkbox" {{if done}}checked="checked"{{/if}}> \n        <span>${name}</span> <a class="destroy"></a>\n      </div>\n      \n      <div class="edit">\n        <input type="text" name="edit_name" value="${name}">\n      </div>\n    </div>\n  ');
+		var d = jQuery.template('  \n    <div class="item {{if done}}done{{/if}}">\n      <div class="view" title="Double click to edit...">\n        <input type="checkbox" {{if done}}checked="checked"{{/if}}> \n        <span>${name}</span> <a class="destroy"></a>\n      </div>\n      \n      <div class="edit">\n        <input type="text" value="${name}">\n      </div>\n    </div>\n  ');
 		c.exports = function(a) {
 			return jQuery.tmpl(d, a)
 		}

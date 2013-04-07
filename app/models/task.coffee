@@ -1,7 +1,10 @@
 class Task extends Spine.Model
   @configure "Task", "name", "done"
+  
+  #@extend Spine.Model.Local
+  @extend Spine.Model.Ajax
 
-  @extend Spine.Model.Local
+  #@url: "/tasks/"
 
   @active: ->
     @select (item) -> !item.done
@@ -10,6 +13,6 @@ class Task extends Spine.Model
     @select (item) -> !!item.done
 
   @destroyDone: ->
-    res.destroy() for res in @done
+    rec.destroy() for rec in @done()
 
 module.exports = Task

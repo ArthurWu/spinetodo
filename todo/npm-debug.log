@@ -1,0 +1,41 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install', '.' ]
+2 info using npm@1.1.61
+3 info using node@v0.8.9
+4 verbose read json /home/sp/reps/spinetodo/package.json
+5 warn package.json app@0.0.1 No README.md file found!
+6 verbose read json /home/sp/reps/spinetodo/node_modules/es5-shimify/package.json
+7 verbose read json /home/sp/reps/spinetodo/node_modules/jqueryify/package.json
+8 verbose read json /home/sp/reps/spinetodo/node_modules/json2ify/package.json
+9 verbose read json /home/sp/reps/spinetodo/node_modules/spine/package.json
+10 verbose read json /home/sp/reps/spinetodo/node_modules/serveup/package.json
+11 verbose read json /home/sp/reps/spinetodo/node_modules/hem/package.json
+12 verbose read json /home/sp/reps/spinetodo/node_modules/tmpl/package.json
+13 warn package.json es5-shimify@0.0.1 No README.md file found!
+14 warn package.json jqueryify@0.0.3 No README.md file found!
+15 warn package.json json2ify@0.0.1 No README.md file found!
+16 warn package.json serveup@0.0.5 No README.md file found!
+17 verbose from cache /home/sp/reps/spinetodo/package.json
+18 verbose readDependencies using package.json deps
+19 verbose cache add [ '.', null ]
+20 silly cache add name=undefined spec="." args=[".",null]
+21 verbose parsed url { pathname: '.', path: '.', href: '.' }
+22 silly lockFile 3a52ce78- .
+23 verbose lock . /home/sp/.npm/3a52ce78-.lock
+24 verbose read json package.json
+25 silly lockFile 3a52ce78- .
+26 error addLocal Could not install .
+27 error Error: ENOENT, open 'package.json'
+28 error If you need help, you may report this log at:
+28 error     <http://github.com/isaacs/npm/issues>
+28 error or email it to:
+28 error     <npm-@googlegroups.com>
+29 error System Linux 3.0.0-28-generic
+30 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "."
+31 error cwd /home/sp/reps/spinetodo/todo
+32 error node -v v0.8.9
+33 error npm -v 1.1.61
+34 error path package.json
+35 error code ENOENT
+36 error errno 34
+37 verbose exit [ 34, true ]
