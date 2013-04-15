@@ -57,6 +57,7 @@ class Task(Resource):
 		data = json.loads(self.request.body)
 		task = get_object_or_404(models.Task, id = self.id)
 		task.name = data.get('name', '')
+		task.done = data.get('done', False)
 		task.save()
 		return HttpResponse(json.dumps(model_to_dict(task)), mimetype='application/json')
 
